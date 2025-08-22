@@ -117,11 +117,15 @@ CREATE table CarReservation (
     rentalCarCoID INT,
     carID INT,
     rate DOUBLE,
+    pickupLocationID INT,
+    dropoffLocationID INT,
     pickupDate DATETIME,
     dropoffDate DATETIME,
     PRIMARY KEY (id),
     FOREIGN KEY (rentalCarCoID) REFERENCES RentalCarCo (id),
-    FOREIGN KEY (carID) REFERENCES Car (id)
+    FOREIGN KEY (carID) REFERENCES Car (id),
+    FOREIGN KEY (pickupLocationID) REFERENCES Location (id),
+    FOREIGN KEY (dropoffLocationID) REFERENCES Location (id)
 );
 
 CREATE table TravelOrder (
