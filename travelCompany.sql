@@ -138,6 +138,7 @@ CREATE table TravelOrder (
     PRIMARY KEY (id),
     FOREIGN KEY (customerID) REFERENCES Customer (id),
     FOREIGN KEY (agentID) REFERENCES Employee (id),
+    FOREIGN KEY (flightReservationID) REFERENCES FlightReservation (id),
     FOREIGN KEY (hotelReservationID) REFERENCES HotelReservation (id),
     FOREIGN KEY (carReservationID) REFERENCES CarReservation (id)
 );
