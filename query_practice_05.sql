@@ -32,3 +32,14 @@ JOIN salaries s
 ON e.emp_no = s.emp_no
 ORDER BY s.salary DESC
 LIMIT 10;
+
+-- 07: first name, last name, salary of highest-paid manager
+SELECT e.first_name, e.last_name, s.salary
+FROM employees e
+JOIN dept_manager dm
+ON e.emp_no = dm.emp_no
+JOIN salaries s
+ON dm.emp_no
+ORDER BY s.salary DESC
+LIMIT 1;
+
