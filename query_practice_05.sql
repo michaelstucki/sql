@@ -24,3 +24,11 @@ SELECT emp_no, first_name, last_name, hire_date
 FROM employees
 ORDER BY hire_date DESC
 LIMIT 10;
+
+-- 06: first name, last name, salary of the top 10 highest-paid employees
+SELECT e.first_name, e.last_name, s.salary
+FROM employees e
+JOIN salaries s
+ON e.emp_no = s.emp_no
+ORDER BY s.salary DESC
+LIMIT 10;
