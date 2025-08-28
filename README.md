@@ -1,1 +1,1 @@
-# sql
+# SQL query practice exercises 
