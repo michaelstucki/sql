@@ -16,5 +16,11 @@ GROUP BY d.dept_no;
 -- 04: the five employees who worked at the company the longest
 SELECT e.emp_no, e.first_name, e.last_name, e.hire_date
 FROM employees e
-ORDER BY e.hire_date DESC
+ORDER BY e.hire_date ASC
 LIMIT 5;
+
+-- 05: the ten newest employees
+SELECT emp_no, first_name, last_name, hire_date
+FROM employees
+ORDER BY hire_date DESC
+LIMIT 10;
