@@ -53,3 +53,9 @@ ON dm.emp_no
 ORDER BY s.salary ASC
 LIMIT 1;
 
+-- 09: number of employees with a specific title, e.g., Software Engineer
+SELECT COUNT(emp_no) AS num_engineers
+FROM titles
+WHERE title = "Engineer";
+
+
