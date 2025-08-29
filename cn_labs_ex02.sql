@@ -2,15 +2,6 @@ CREATE DATABASE airtravel;
 
 USE airtravel;
 
-CREATE TABLE Location (
-    id INT AUTO_INCREMENT,
-    address VARCHAR(40) NOT NULL,
-    city VARCHAR(40) NOT NULL,
-    country VARCHAR(40) NOT NULL,
-    postcode VARCHAR(10) NOT NULL,
-    PRIMARY KEY (id)
-);
-
 CREATE TABLE Passenger (
     id INT AUTO_INCREMENT,
     firstName VARCHAR(40) NOT NULL,
@@ -21,9 +12,11 @@ CREATE TABLE Passenger (
 CREATE TABLE Airport (
     id INT AUTO_INCREMENT,
     name VARCHAR(20),
-    locationID INT NOT NULL,
-    PRIMARY KEY (id),
-    FOREIGN KEY (locationID) REFERENCES Location (id)
+    address VARCHAR(40) NOT NULL,
+    city VARCHAR(40) NOT NULL,
+    country VARCHAR(40) NOT NULL,
+    postcode VARCHAR(10) NOT NULL,
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE Airline (
@@ -44,15 +37,17 @@ CREATE table Flight (
     id INT AUTO_INCREMENT,
     airlineID INT NOT NULL,
     airplaneID INT NOT NULL,
-    departureLoc INT NOT NULL,
-    arrivalLoc INT NOT NULL,
-    departureTime DATETIME NOT NULL,
-    arrivalTime DATETIME NOT NULL,
+    departureID INT NOT NULL,
+    arrivalID INT NOT NULL,
+    departureDate DATE NOT NULL,
+    departureTime TIME NOT NULL,
+    arrivalDate DATE NOT NULL,
+    arrivalTime TIME NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (airlineID) REFERENCES Airline (id),
     FOREIGN KEY (airplaneID) REFERENCES Airplane (id),
-    FOREIGN KEY (departureLoc) REFERENCES Airport (id),
-    FOREIGN KEY (arrivalLoc) REFERENCES Airport (id)
+    FOREIGN KEY (departureID) REFERENCES Airport (id),
+    FOREIGN KEY (arrivalID) REFERENCES Airport (id)
     );
     
 CREATE TABLE Ticket (
