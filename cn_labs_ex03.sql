@@ -31,5 +31,14 @@ JOIN Airport a ON f.arrivalID = a.id
 WHERE f.id = 1 AND p.firstName = 'Lily' AND p.lastName = 'Valley';
 
 -- 5. query the passenger information for a specific user on a specific flight yesterday
-SELECT p.*
+SELECT p.*, f.*, d.city, a.city, al.*, ap.*
+FROM Passenger p
+JOIN Ticket t ON t.passengerID = p.id
+JOIN Flight f on t.flightID = f.id
+JOIN Airport d ON f.departureID = d.id
+JOIN Airport a ON f.arrivalID = a.id
+JOIN Airline al ON f.airlineID = al.id
+JOIN Airplane ap ON f.airplaneID = ap.id
+WHERE p.firstName = 'Billy' AND p.lastName = 'Bumpkin'
+AND f.id = 7;
 
