@@ -20,6 +20,7 @@ CREATE TABLE Passenger (
 
 CREATE TABLE Airport (
     id INT AUTO_INCREMENT,
+    name VARCHAR(20),
     locationID INT NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (locationID) REFERENCES Location (id)
