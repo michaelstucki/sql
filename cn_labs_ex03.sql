@@ -21,4 +21,12 @@ JOIN Ticket t ON t.flightID = f.id
 JOIN Passenger p ON p.id = t.passengerID
 WHERE d.city = 'Los Angeles' AND a.city = 'Rome' AND f.departureDate = '1961-05-20';
 
+-- 4. query the flight information for a specific passenger on a specific flight
+SELECT *
+FROM Passenger p
+JOIN Ticket t ON t.passengerID = p.id
+JOIN Flight f ON t.flightID = f.id
+JOIN Airport d ON f.departureID = d.id
+JOIN Airport a ON f.arrivalID = a.id
+WHERE f.id = 1 AND p.firstName = 'Lily' AND p.lastName = 'Valley';
 
