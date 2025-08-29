@@ -42,3 +42,11 @@ JOIN Airplane ap ON f.airplaneID = ap.id
 WHERE p.firstName = 'Billy' AND p.lastName = 'Bumpkin'
 AND f.id = 7;
 
+-- 6. query the number of flights between two specific cities this week, month, and year
+SELECT COUNT(f.id) AS Num_Flights_LA_to_Rome
+FROM Flight f
+JOIN Airport d ON f.departureID = d.id
+JOIN Airport a ON f.arrivalID = a.id
+WHERE d.city = 'Los Angeles' AND a.city = 'Rome'
+AND f.departureDate BETWEEN '1961-05-15' AND '1961-05-25';
+
