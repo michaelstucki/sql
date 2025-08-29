@@ -12,5 +12,6 @@ JOIN Airport d ON f.departureID = d.id
 JOIN Airport a ON f.arrivalID = a.id
 WHERE d.city = 'Los Angeles' AND a.city = 'Rome' AND f.departureDate = '1961-05-20';
 
+-- 3. query all passengers on a specific flight between two specific cities today
 
 
