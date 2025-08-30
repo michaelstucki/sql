@@ -90,3 +90,8 @@ JOIN Airport a ON f.arrivalID = a.id
 WHERE d.city = 'Los Angeles' AND a.city = 'Rome'
 AND f.departureDate LIKE '1961-%';
 
+-- 8. insert records for new flights between airports
+INSERT INTO Flight (airlineID, airplaneID, departureID, arrivalID, departureDate, departureTime, arrivalDate, arrivalTime)
+  VALUES (2, 1, 2, 1, '2025-08-29', '00:00:00', '2025-08-29', '12:00:15');
+INSERT INTO Flight (airlineID, airplaneID, departureID, arrivalID, departureDate, departureTime, arrivalDate, arrivalTime)
+  VALUES (1, 2, 3, 2, '2025-08-29', '00:00:00', '2025-08-29', '12:00:15');
