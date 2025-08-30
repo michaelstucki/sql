@@ -50,3 +50,43 @@ JOIN Airport a ON f.arrivalID = a.id
 WHERE d.city = 'Los Angeles' AND a.city = 'Rome'
 AND f.departureDate BETWEEN '1961-05-15' AND '1961-05-25';
 
+-- 7a. query the number of passengers that travelled between two specific cities today, this week, month and year
+SELECT COUNT(p.id) AS Num_Passengers
+FROM Passenger p
+JOIN Ticket t ON t.passengerID = p.id
+JOIN Flight f ON t.flightID = f.id
+JOIN Airport d ON f.departureID = d.id
+JOIN Airport a ON f.arrivalID = a.id
+WHERE d.city = 'Los Angeles' AND a.city = 'Rome'
+AND f.departureDate = '1961-05-20';
+
+-- 7b. query the number of passengers that travelled between two specific cities this week
+SELECT COUNT(p.id) AS Num_Passengers
+FROM Passenger p
+JOIN Ticket t ON t.passengerID = p.id
+JOIN Flight f ON t.flightID = f.id
+JOIN Airport d ON f.departureID = d.id
+JOIN Airport a ON f.arrivalID = a.id
+WHERE d.city = 'Los Angeles' AND a.city = 'Rome'
+AND f.departureDate BETWEEN '1961-05-15' AND '1961-05-25';
+
+-- 7c. query the number of passengers that travelled between two specific cities this month
+SELECT COUNT(p.id) AS Num_Passengers
+FROM Passenger p
+JOIN Ticket t ON t.passengerID = p.id
+JOIN Flight f ON t.flightID = f.id
+JOIN Airport d ON f.departureID = d.id
+JOIN Airport a ON f.arrivalID = a.id
+WHERE d.city = 'Los Angeles' AND a.city = 'Rome'
+AND f.departureDate LIKE '1961-05-%';
+
+-- 7d. query the number of passengers that travelled between two specific cities this year
+SELECT COUNT(p.id) AS Num_Passengers
+FROM Passenger p
+JOIN Ticket t ON t.passengerID = p.id
+JOIN Flight f ON t.flightID = f.id
+JOIN Airport d ON f.departureID = d.id
+JOIN Airport a ON f.arrivalID = a.id
+WHERE d.city = 'Los Angeles' AND a.city = 'Rome'
+AND f.departureDate LIKE '1961-%';
+
