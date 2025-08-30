@@ -102,5 +102,13 @@ INSERT INTO Passenger (firstName, lastName) VALUES ("Sam", "Gamgee");
 INSERT INTO Ticket (passengerID, flightID, meal) VALUES(4, 13, "pizza");
 INSERT INTO Ticket (passengerID, flightID, meal) VALUES(5, 14, "locusts");
 
+-- 10. update meal preference (or something similar) for a specific passenger on a specific flight
+UPDATE Ticket t
+JOIN Flight f ON t.flightID = f.id
+JOIN Passenger p ON t.passengerID = p.id
+SET t.meal = 'grapes'
+WHERE f.id = 14 AND p.firstName = 'Sam' AND p.lastName = 'Gamgee';
+
+
 
 
